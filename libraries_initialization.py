@@ -8,9 +8,7 @@ from langchain_community.chat_message_histories import DynamoDBChatMessageHistor
 from langchain_aws import BedrockEmbeddings
 from langchain_aws import ChatBedrock
 import streamlit as st
-from dotenv import load_dotenv
-# Load environment variables
-load_dotenv()
+
 
 # Constants for configuration
 REGION_NAME = 'us-east-1'
@@ -29,5 +27,5 @@ embeddings = BedrockEmbeddings(client=bedrock_client, region_name=REGION_NAME_BE
 llm = ChatBedrock(model_id=MODEL_ID, region_name=REGION_NAME_BEDROCK, client=bedrock_client)
 
 
-PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')   
+PINECONE_API_KEY = aws_access_key_id=st.secrets["PINECONE_API_KEY"]  
 
